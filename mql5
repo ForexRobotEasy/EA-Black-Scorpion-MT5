@@ -1,0 +1,84 @@
+
+//+------------------------------------------------------------------+
+//|                                                     EA Black Scorpion MT5 |
+//|                        forexroboteasy.com                   |
+//|                                    Forex Robot Easy Team                       |
+//+------------------------------------------------------------------+
+#property copyright 'forexroboteasy.com'
+#property link      'https://www.forexroboteasy.com'
+#property version   '1.0'
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Initialize necessary variables and indicators here
+   
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Perform necessary cleanup and close any open orders here
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Perform the complex mathematical calculation system to identify high price fluctuations on the chart
+   
+   // Check if there are good moments to enter the market
+   bool goodMoments = CheckGoodMoments();
+   
+   if (goodMoments)
+   {
+      // Open BuyStop and SellStop pending orders
+      OpenPendingOrders();
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Check if there are good moments to enter the market              |
+//+------------------------------------------------------------------+
+bool CheckGoodMoments()
+{
+   // Implement the logic to determine if there are good moments to enter the market
+   
+   // Return true if there are good moments, false otherwise
+   return true;
+}
+
+//+------------------------------------------------------------------+
+//| Open BuyStop and SellStop pending orders                          |
+//+------------------------------------------------------------------+
+void OpenPendingOrders()
+{
+   // Implement the logic to open BuyStop and SellStop pending orders
+   
+   // Place the pending orders here
+}
+
+//+------------------------------------------------------------------+
+//| Expert start function                                             |
+//+------------------------------------------------------------------+
+void OnStart()
+{
+   // Set the advisor to conduct trading on the H1 timeframe
+   ChartSetInteger(0, CHART_PERIOD, PERIOD_H1);
+   
+   // Ensure that the EA does not use risky strategies
+   // Implement risk management here
+   
+   // Start trading
+   while (!IsStopped())
+   {
+      OnTick();
+      Sleep(1000);
+   }
+}
